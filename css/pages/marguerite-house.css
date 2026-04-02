@@ -1,0 +1,11 @@
+.page-hero-bg {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(28, 25, 22, 0.45) 0%,
+      rgba(28, 25, 22, 0.25) 35%,
+      rgba(28, 25, 22, 0.78) 70%,
+      rgba(28, 25, 22, 0.92) 100%
+    ),
+    url("../../images/bride-makeup-bw.jpg") center / cover no-repeat;
+}

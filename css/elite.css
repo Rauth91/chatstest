@@ -1,0 +1,777 @@
+
+/* ===== Elite-level polish pass ===== */
+:root {
+  --content-max: 1100px;
+  --reading-max: 760px;
+  --space-1: 24px;
+  --space-2: 48px;
+  --space-3: 96px;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+}
+
+main {
+  overflow: clip;
+}
+
+.hero,
+.page-hero,
+.ceremony-hero,
+.contact-hero {
+  isolation: isolate;
+}
+
+.hero-content,
+.page-hero-content,
+.cta-band-content,
+.cta-band-inner,
+.hero-right-inner {
+  max-width: min(920px, calc(100vw - 40px));
+}
+
+.hero-content,
+.page-hero-content {
+  display: grid;
+  justify-items: center;
+  gap: 0;
+}
+
+.hero-eyebrow,
+.page-eyebrow {
+  margin-bottom: 18px !important;
+}
+
+.hero-title,
+.page-title {
+  margin-bottom: 10px !important;
+  text-wrap: balance;
+}
+
+.hero-script,
+.page-script {
+  margin-bottom: 18px !important;
+  max-width: 28ch;
+  text-wrap: balance;
+}
+
+.hero-subtitle,
+.hero-sub,
+.contact-intro,
+.cta-band-sub,
+.cta-sub,
+.section-intro,
+.body-copy,
+.story-body,
+.venue-body,
+.space-body {
+  text-wrap: pretty;
+}
+
+.hero-subtitle,
+.hero-sub {
+  max-width: 42rem;
+  margin: 0 auto 28px !important;
+}
+
+.hero-actions,
+.cta-band-actions,
+.cta-band-btns {
+  gap: 14px;
+}
+
+.btn-primary,
+.btn-outline,
+.btn-ghost,
+.pkg-cta,
+.micro-card-cta,
+.form-submit {
+  transition: transform .28s ease, box-shadow .28s ease, background-color .28s ease, color .28s ease, border-color .28s ease;
+}
+
+.btn-primary:hover,
+.btn-outline:hover,
+.btn-ghost:hover,
+.pkg-cta:hover,
+.micro-card-cta:hover,
+.form-submit:hover {
+  transform: translateY(-2px);
+}
+
+/* Luxury homepage hero cleanup */
+.hero::after {
+  display: none !important;
+}
+
+.hero-subtitle {
+  background: transparent !important;
+  border: 0 !important;
+  backdrop-filter: none !important;
+  padding: 0 !important;
+}
+
+.hero-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 auto 28px;
+}
+
+.hero-badge {
+  padding: 9px 14px;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 999px;
+  font-size: .6rem;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.88);
+  background: rgba(255,255,255,.06);
+}
+
+.section-intro-elite {
+  max-width: var(--reading-max);
+  margin: 22px auto 0;
+  text-align: center;
+  color: var(--stone);
+}
+
+.local-seo-copy {
+  max-width: var(--reading-max);
+  margin: 24px auto 0;
+  font-size: 1rem;
+  color: var(--stone);
+}
+
+.testimonial-marquee {
+  padding: clamp(56px, 6vw, 88px) var(--side-pad);
+  background: linear-gradient(180deg, rgba(255,255,255,.66), rgba(242,237,228,.92));
+}
+
+.testimonial-marquee-grid {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.testimonial-marquee-card {
+  padding: 28px;
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(184,151,90,.14);
+  box-shadow: 0 18px 40px rgba(28,25,22,.05);
+}
+
+.testimonial-marquee-card p {
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+  line-height: 1.45;
+  margin-bottom: 18px;
+}
+
+.testimonial-marquee-card span {
+  font-size: .66rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.trust-strip {
+  padding: 18px var(--side-pad) 0;
+}
+
+.trust-strip-inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  color: var(--stone);
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.trust-strip-inner span::before {
+  content: "•";
+  margin-right: 14px;
+  color: var(--gold);
+}
+.trust-strip-inner span:first-child::before { content: ""; margin-right: 0; }
+
+.story,
+.venue-teaser,
+.split,
+.philosophy,
+.contact-info-grid,
+.packages-grid,
+.micro-grid {
+  align-items: start !important;
+}
+
+.story-image,
+.venue-image,
+.split-img,
+.intro-image,
+.space-image,
+.hero-left,
+.pkg-card-img,
+.phil-img,
+.gallery-item {
+  overflow: hidden;
+}
+
+.story-image img,
+.venue-image img,
+.split-img img,
+.intro-image img,
+.space-image img,
+.hero-left img,
+.pkg-card-img img,
+.phil-img img,
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-image img { object-position: center 40%; }
+.venue-image img { object-position: center 48%; }
+.marguerite-house-page .split-img img,
+body[data-page="marguerite-house"] .split-img img { object-position: center 36%; }
+body[data-page="marguerite-house"] .intro-image img { object-position: center 30%; }
+body[data-page="ceremony-spaces"] .page-hero-bg { background-position: center 38%; }
+body[data-page="gallery"] .page-hero-bg { background-position: center 38%; }
+body[data-page="pricing"] .page-hero-bg { background-position: center 40%; }
+body[data-page="micro-weddings"] .page-hero-bg { background-position: center 42%; }
+body[data-page="contact"] .hero-left img { object-position: center 40%; }
+
+.split,
+.story,
+.venue-teaser {
+  grid-auto-rows: auto;
+}
+
+.feature-quote,
+.statement {
+  position: relative;
+}
+
+.feature-quote::before,
+.statement::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  width: min(88%, 1120px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184,151,90,.28), transparent);
+}
+
+/* Motion */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery-item img,
+.gallery-cell img,
+.space-image img,
+.pkg-card-img img,
+.venue-image img,
+.story-image img {
+  transition: transform .7s ease;
+}
+.gallery-item:hover img,
+.gallery-cell:hover img,
+.space-card:hover .space-image img,
+.pkg-card:hover .pkg-card-img img,
+.venue-teaser:hover .venue-image img,
+.story:hover .story-image img {
+  transform: scale(1.035);
+}
+
+/* Premium lightbox */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(14, 12, 10, 0.92);
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  padding: 32px;
+}
+#lightbox.open { display: flex; }
+#lightbox figure {
+  max-width: min(1180px, 94vw);
+  max-height: 90vh;
+  margin: 0;
+  display: grid;
+  gap: 18px;
+  justify-items: center;
+}
+#lbImg {
+  max-width: 100%;
+  max-height: calc(90vh - 100px);
+  object-fit: contain;
+  box-shadow: 0 30px 80px rgba(0,0,0,.3);
+}
+#lbMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  color: rgba(250,247,242,.88);
+  font-size: .75rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+#lbLabel {
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  letter-spacing: 0;
+  text-transform: none;
+  color: #fff;
+}
+#lbCounter { color: rgba(250,247,242,.55); }
+.lb-btn {
+  position: absolute;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.06);
+  color: #fff;
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+}
+.lb-prev { left: 28px; }
+.lb-next { right: 28px; }
+.lb-close { top: 28px; right: 28px; }
+
+/* Mini social proof sections */
+.social-proof-band {
+  padding: 0 var(--side-pad) clamp(58px, 7vw, 88px);
+}
+.social-proof-band-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 30px 34px;
+  border-top: 1px solid rgba(184,151,90,.18);
+  border-bottom: 1px solid rgba(184,151,90,.18);
+  text-align: center;
+}
+.social-proof-band h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2.3rem);
+  font-weight: 400;
+  margin-bottom: 14px;
+}
+.social-proof-band p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--stone);
+}
+
+.gallery-story-intro {
+  max-width: 780px;
+  margin: 26px auto 0;
+  text-align: center;
+  color: var(--stone);
+}
+
+.analytics-note {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .testimonial-marquee-grid {
+    grid-template-columns: 1fr;
+  }
+  #lightbox { padding: 20px; }
+  .lb-prev { left: 14px; }
+  .lb-next { right: 14px; }
+}
+
+/* ===== Final code pass ===== */
+header,
+.site-header,
+nav,
+.top-nav {
+  backdrop-filter: none !important;
+}
+
+nav {
+  background: rgba(255,255,255,0.94) !important;
+  border-bottom: 1px solid rgba(28,25,22,0.06) !important;
+  box-shadow: 0 8px 24px rgba(28,25,22,0.04);
+}
+
+.hero,
+.page-hero,
+.ceremony-hero,
+.contact-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero {
+  min-height: 90vh;
+}
+
+.page-hero,
+.ceremony-hero,
+.contact-hero {
+  min-height: 78vh;
+}
+
+.hero::before,
+.hero::after,
+.page-hero::before,
+.page-hero::after,
+.cta-band::before,
+.cta-band::after,
+.gallery-cta-band::before,
+.gallery-cta-band::after,
+.hero-frame,
+.hero-border {
+  display: none !important;
+  content: none !important;
+}
+
+.hero-bg {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(28, 25, 22, 0.16) 0%,
+      rgba(28, 25, 22, 0.08) 38%,
+      rgba(28, 25, 22, 0.50) 100%
+    ),
+    url("../images/Main-Hero.jpg") center center / cover no-repeat !important;
+}
+
+.page-hero-bg,
+.ceremony-hero-bg {
+  filter: none !important;
+}
+
+.hero-content,
+.page-hero-content,
+.cta-band-content,
+.cta-band-inner {
+  width: min(900px, calc(100vw - 48px));
+  margin-inline: auto;
+  text-align: center;
+}
+
+.hero-title {
+  max-width: 920px;
+  margin: 0 auto 10px !important;
+  font-size: clamp(42px, 6vw, 72px) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.025em;
+}
+
+.hero-title em {
+  display: inline-block;
+  font-style: italic;
+}
+
+.hero-script {
+  margin-bottom: 16px !important;
+}
+
+.hero-subtitle,
+.hero-sub {
+  max-width: 44rem;
+  margin: 0 auto 24px !important;
+}
+
+.hero-actions,
+.hero-buttons,
+.cta-band-actions,
+.cta-band-btns {
+  display: flex;
+  gap: 16px !important;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.page-title,
+.cta-band-title,
+.cta-title {
+  max-width: 16ch;
+  margin-inline: auto;
+  line-height: 1.06 !important;
+}
+
+.page-script,
+.cta-band-script {
+  margin-top: 12px;
+  margin-bottom: 18px !important;
+}
+
+.page-hero-content .hero-sub,
+.cta-band-sub {
+  max-width: 38rem;
+  margin-inline: auto;
+}
+
+.intro-block,
+.section-wide,
+.container {
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+/* remove last boxed feel */
+.intro-block,
+.intro-image,
+.intro-text,
+.pull-quote,
+.testimonial-marquee-card,
+.contact-card,
+.info-card {
+  box-shadow: none !important;
+}
+
+/* tighten any accidental empty top sections */
+.top-cta-section,
+.page-top-cta,
+.intro-top-cta,
+.pretitle-cta {
+  padding-top: 40px !important;
+  padding-bottom: 20px !important;
+}
+
+/* cleaner mobile rhythm */
+@media (max-width: 900px) {
+  .hero,
+  .page-hero,
+  .ceremony-hero,
+  .contact-hero {
+    min-height: 72vh;
+  }
+
+  .hero-title {
+    font-size: clamp(38px, 12vw, 60px) !important;
+  }
+
+  .page-title,
+  .cta-band-title,
+  .cta-title {
+    max-width: 12ch;
+  }
+}
+
+
+/* Final polish overrides */
+nav,
+nav.scrolled {
+  background: rgba(250, 247, 242, 0.96);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  padding: 16px var(--side-pad);
+  box-shadow: 0 1px 0 rgba(106, 94, 80, 0.12);
+}
+
+.nav-logo,
+nav.scrolled .nav-logo {
+  color: var(--ink);
+  text-shadow: none;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+}
+
+.nav-links a,
+nav.scrolled .nav-links a {
+  color: var(--stone);
+  text-shadow: none;
+}
+
+.nav-links a:hover,
+nav.scrolled .nav-links a:hover,
+.nav-links a.nav-active:not(.nav-cta),
+nav.scrolled .nav-links a.nav-active:not(.nav-cta) {
+  color: var(--ink) !important;
+}
+
+.nav-links a.nav-active:not(.nav-cta)::after,
+nav.scrolled .nav-links a.nav-active:not(.nav-cta)::after {
+  background: var(--gold) !important;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.nav-cta,
+nav.scrolled .nav-cta {
+  color: var(--ink);
+  border-color: rgba(106, 94, 80, 0.16);
+  background: transparent;
+}
+
+.nav-cta:hover,
+nav.scrolled .nav-cta:hover {
+  background: var(--ink);
+  color: var(--white);
+  border-color: var(--ink);
+}
+
+.nav-toggle span {
+  background: var(--ink);
+}
+
+.hero::after,
+.page-hero::after,
+.ceremony-hero::after,
+.contact-hero::after,
+.policy-hero::after,
+.story-content::before,
+.venue-content::before,
+.split-content::before,
+.cta-band::before,
+.cta-band::after,
+.gallery-cta-band::before,
+.gallery-cta-band::after {
+  display: none !important;
+}
+
+.hero-subtitle,
+.hero-sub,
+.cta-band-sub {
+  max-width: 42ch;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  background: none;
+  border: 0;
+  backdrop-filter: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  line-height: 1.8;
+}
+
+.hero-badge-row,
+.hero-scroll {
+  display: none !important;
+}
+
+.hero-title,
+.page-hero-content > .page-title,
+.cta-band-title {
+  max-width: 13ch;
+}
+
+.hero-script,
+.page-hero-content > .page-script,
+.cta-band-script {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  line-height: 1.15;
+}
+
+.page-hero-content,
+.hero-content,
+.cta-band-content,
+.cta-band-inner {
+  gap: 14px;
+}
+
+.hero-actions,
+.cta-band-actions,
+.cta-band-btns {
+  margin-top: 18px;
+}
+
+.venue-teaser {
+  min-height: auto;
+  align-items: center !important;
+}
+
+.venue-image {
+  height: auto;
+  align-self: stretch;
+}
+
+.venue-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  aspect-ratio: 4 / 5;
+}
+
+.venue-content {
+  justify-content: center;
+  align-self: center;
+  padding-top: clamp(56px, 7vw, 88px);
+  padding-bottom: clamp(56px, 7vw, 88px);
+}
+
+.venue-body {
+  max-width: 34ch;
+  line-height: 1.8;
+  margin-bottom: 28px;
+}
+
+.cta-band {
+  min-height: auto;
+  padding: clamp(84px, 10vw, 120px) 0;
+}
+
+.cta-band-title {
+  max-width: 11ch;
+}
+
+.cta-band-script {
+  max-width: 30ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 1100px) {
+  .nav-links {
+    gap: 20px;
+  }
+
+  .nav-links a {
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+  }
+}
+
+@media (max-width: 768px) {
+  nav,
+  nav.scrolled {
+    padding: 14px var(--side-pad);
+  }
+
+  .hero-title,
+  .page-hero-content > .page-title,
+  .cta-band-title {
+    max-width: 10ch;
+  }
+
+  .venue-teaser {
+    grid-template-columns: 1fr;
+  }
+
+  .venue-image img {
+    aspect-ratio: 5 / 4;
+  }
+}

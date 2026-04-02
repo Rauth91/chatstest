@@ -1,0 +1,288 @@
+backend:
+  name: github
+  repo: PelicanStateMedia/Chatsworthplantation
+  branch: main
+  base_url: https://chatsworthplantation.ryan-authement1.workers.dev
+  auth_endpoint: api/auth
+
+# ── LOCAL TESTING ──────────────────────────────────────
+# To test locally, comment out the backend block above
+# and uncomment the two lines below:
+# local_backend: true
+# backend:
+#   name: proxy
+#   proxy_url: http://localhost:8081/api/v1
+
+# Where uploaded media files go
+media_folder: images
+public_folder: images
+
+# Show a live preview link in the editor
+site_url: https://chatsworthplantation.ryan-authement1.workers.dev
+display_url: https://chatsworthplantation.ryan-authement1.workers.dev
+
+# ─────────────────────────────────────────────────────────────────────────────
+# COLLECTIONS — one per editable page / content type
+# ─────────────────────────────────────────────────────────────────────────────
+collections:
+
+  # ── SITE-WIDE SETTINGS ────────────────────────────────────────────────────
+  - name: settings
+    label: "⚙️  Site Settings"
+    files:
+      - name: general
+        label: "General Settings"
+        file: _data/settings.json
+        fields:
+          - { label: "Phone Number", name: phone, widget: string, hint: "e.g. (225) 263-2202" }
+          - { label: "Email Address", name: email, widget: string }
+          - { label: "Address Line 1", name: address1, widget: string, default: "5755 LA-74" }
+          - { label: "City, State, Zip", name: address2, widget: string, default: "Saint Gabriel, Louisiana 70776" }
+          - { label: "Instagram URL", name: instagram, widget: string }
+          - { label: "Facebook URL", name: facebook, widget: string }
+          - { label: "The Knot URL", name: theknot, widget: string }
+          - { label: "WeddingWire URL", name: weddingwire, widget: string }
+          - { label: "Pinterest URL", name: pinterest, widget: string }
+
+  # ── HOMEPAGE ──────────────────────────────────────────────────────────────
+  - name: homepage
+    label: "🏠  Homepage"
+    files:
+      - name: index
+        label: "Homepage Content"
+        file: _data/homepage.json
+        fields:
+          - label: "Hero Section"
+            name: hero
+            widget: object
+            fields:
+              - { label: "Hero Photo", name: image, widget: image, hint: "Main full-screen photo on homepage" }
+              - { label: "Eyebrow Text", name: eyebrow, widget: string, default: "Saint Gabriel, Louisiana · Est. 1770s" }
+              - { label: "Main Heading", name: heading, widget: string, default: "Where your story finds its home" }
+              - { label: "Script Line", name: script, widget: string, default: "Where forever begins" }
+              - { label: "Subtitle", name: subtitle, widget: string }
+
+          - label: "Story Section"
+            name: story
+            widget: object
+            fields:
+              - { label: "Story Photo", name: image, widget: image }
+              - { label: "Section Label", name: label, widget: string, default: "Our Story" }
+              - { label: "Heading", name: heading, widget: string }
+              - { label: "Body Paragraph 1", name: body1, widget: text }
+              - { label: "Body Paragraph 2", name: body2, widget: text }
+
+          - label: "Testimonials"
+            name: testimonials
+            widget: list
+            max: 3
+            fields:
+              - { label: "Couple Names", name: names, widget: string }
+              - { label: "Event Type", name: detail, widget: string }
+              - { label: "Quote", name: quote, widget: text }
+
+          - label: "CTA Band"
+            name: cta
+            widget: object
+            fields:
+              - { label: "CTA Photo", name: image, widget: image }
+              - { label: "Heading", name: heading, widget: string }
+              - { label: "Script Line", name: script, widget: string }
+              - { label: "Subtext", name: sub, widget: string }
+
+  # ── GALLERY ───────────────────────────────────────────────────────────────
+  - name: gallery
+    label: "📸  Gallery"
+    files:
+      - name: photos
+        label: "Gallery Photos"
+        file: _data/gallery.json
+        fields:
+          - label: "Gallery Photos"
+            name: photos
+            widget: list
+            fields:
+              - { label: "Photo", name: image, widget: image }
+              - { label: "Label", name: label, widget: string, hint: "Caption shown on hover" }
+              - label: "Category"
+                name: category
+                widget: select
+                options:
+                  - { label: "The Estate", value: estate }
+                  - { label: "Ceremonies", value: ceremonies }
+                  - { label: "Receptions", value: receptions }
+                  - { label: "Portraits", value: portraits }
+                  - { label: "Details", value: details }
+                  - { label: "Marguerite House", value: marguerite }
+
+  # ── PRICING ───────────────────────────────────────────────────────────────
+  - name: pricing
+    label: "💰  Pricing"
+    files:
+      - name: packages
+        label: "Wedding Packages"
+        file: _data/pricing.json
+        fields:
+          - label: "Package 1 — The Celebration"
+            name: pkg1
+            widget: object
+            fields:
+              - { label: "Package Name", name: name, widget: string, default: "The Celebration" }
+              - { label: "Price", name: price, widget: string, default: "$5,400" }
+              - { label: "Guest Range", name: guests, widget: string, default: "Up to 120 guests · Up to 4 hours" }
+              - { label: "Photo", name: image, widget: image }
+              - label: "Included Items"
+                name: features
+                widget: list
+                field: { label: "Item", name: item, widget: string }
+
+          - label: "Package 2 — The Estate (Most Popular)"
+            name: pkg2
+            widget: object
+            fields:
+              - { label: "Package Name", name: name, widget: string, default: "The Estate" }
+              - { label: "Price", name: price, widget: string, default: "$8,000" }
+              - { label: "Guest Range", name: guests, widget: string, default: "121–175 guests · Up to 4 hours" }
+              - { label: "Photo", name: image, widget: image }
+              - label: "Included Items"
+                name: features
+                widget: list
+                field: { label: "Item", name: item, widget: string }
+
+          - label: "Package 3 — The Grand Estate"
+            name: pkg3
+            widget: object
+            fields:
+              - { label: "Package Name", name: name, widget: string, default: "The Grand Estate" }
+              - { label: "Price", name: price, widget: string, default: "$12,800" }
+              - { label: "Guest Range", name: guests, widget: string, default: "176–300 guests · Up to 4 hours" }
+              - { label: "Photo", name: image, widget: image }
+              - label: "Included Items"
+                name: features
+                widget: list
+                field: { label: "Item", name: item, widget: string }
+
+          - label: "Micro Wedding — Ceremony"
+            name: micro1
+            widget: object
+            fields:
+              - { label: "Price", name: price, widget: string, default: "$800" }
+              - { label: "Description", name: desc, widget: text }
+
+          - label: "Micro Wedding — Ceremony + Reception"
+            name: micro2
+            widget: object
+            fields:
+              - { label: "Price", name: price, widget: string, default: "$800 + $1,500" }
+              - { label: "Description", name: desc, widget: text }
+
+          - { label: "Additional Hours Rate", name: extra_hours, widget: string, default: "$450/hr" }
+          - { label: "Deposit Amount", name: deposit, widget: string, default: "$1,000" }
+          - { label: "Sales Tax", name: tax, widget: string, default: "9.45%" }
+
+  # ── MARGUERITE HOUSE ───────────────────────────────────────────────────────
+  - name: marguerite
+    label: "🏡  Marguerite House"
+    files:
+      - name: content
+        label: "Marguerite House Content"
+        file: _data/marguerite.json
+        fields:
+          - { label: "Hero Photo", name: hero_image, widget: image }
+          - { label: "Nightly Rate — Marguerite House", name: rate_marguerite, widget: string, default: "$1,550/night" }
+          - { label: "Nightly Rate — CarolAnn Cottage", name: rate_cottage, widget: string, default: "$250/night" }
+          - { label: "Get-Ready Suites Range", name: rate_suites, widget: string, default: "$500–$1,200" }
+          - label: "Marguerite House Photos"
+            name: photos
+            widget: list
+            max: 6
+            fields:
+              - { label: "Photo", name: image, widget: image }
+              - { label: "Caption", name: caption, widget: string }
+
+  # ── FAQ ───────────────────────────────────────────────────────────────────
+  - name: faq
+    label: "❓  FAQ"
+    files:
+      - name: questions
+        label: "FAQ Questions & Answers"
+        file: _data/faq.json
+        fields:
+          - label: "Booking & Pricing"
+            name: booking
+            widget: list
+            fields:
+              - { label: "Question", name: q, widget: string }
+              - { label: "Answer", name: a, widget: text }
+
+          - label: "The Venue"
+            name: venue
+            widget: list
+            fields:
+              - { label: "Question", name: q, widget: string }
+              - { label: "Answer", name: a, widget: text }
+
+          - label: "Vendors & Catering"
+            name: vendors
+            widget: list
+            fields:
+              - { label: "Question", name: q, widget: string }
+              - { label: "Answer", name: a, widget: text }
+
+          - label: "Lodging"
+            name: lodging
+            widget: list
+            fields:
+              - { label: "Question", name: q, widget: string }
+              - { label: "Answer", name: a, widget: text }
+
+  # ── AREA GUIDE ────────────────────────────────────────────────────────────
+  - name: area_guide
+    label: "📍  Area Guide"
+    files:
+      - name: hotels
+        label: "Nearby Hotels"
+        file: _data/hotels.json
+        fields:
+          - label: "Hotels"
+            name: hotels
+            widget: list
+            fields:
+              - { label: "Hotel Name", name: name, widget: string }
+              - { label: "Address", name: address, widget: string }
+              - { label: "Distance from Chatsworth", name: distance, widget: string, hint: "e.g. ~15 minutes" }
+              - { label: "Description", name: desc, widget: text }
+              - label: "Badge"
+                name: badge
+                widget: select
+                required: false
+                options:
+                  - { label: "Closest", value: closest }
+                  - { label: "Recommended", value: recommended }
+                  - { label: "None", value: "" }
+
+      - name: restaurants
+        label: "Rehearsal Dinner Restaurants"
+        file: _data/restaurants.json
+        fields:
+          - label: "Restaurants"
+            name: restaurants
+            widget: list
+            fields:
+              - { label: "Restaurant Name", name: name, widget: string }
+              - { label: "Address", name: address, widget: string }
+              - { label: "Cuisine / Description", name: desc, widget: text }
+              - { label: "Distance", name: distance, widget: string }
+
+  # ── CONTACT ───────────────────────────────────────────────────────────────
+  - name: contact
+    label: "✉️  Contact Page"
+    files:
+      - name: content
+        label: "Contact Page Content"
+        file: _data/contact.json
+        fields:
+          - { label: "Hero Photo", name: hero_image, widget: image }
+          - { label: "Hours — Weekdays", name: hours_week, widget: string, default: "Monday – Saturday, 10:00am – 5:00pm" }
+          - { label: "Hours — Weekends", name: hours_weekend, widget: string, default: "Sunday by appointment only" }
+          - { label: "Tour Booking Note", name: tour_note, widget: text }
